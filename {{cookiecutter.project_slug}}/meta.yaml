@@ -1,0 +1,20 @@
+package:
+  name: {{cookiecutter.project_slug}}
+  version: {{cookiecutter.version}}
+
+build:
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 0
+
+requirements:
+  build:
+    - python
+    - pywget
+{% if cookiecutter.bin_format in ('tar.gz', 'tar.bz2', 'tar') %}
+    # Include `git`, since it includes `tar`
+    - git # [win]
+{% else %}{% if cookiecutter.bin_format in ('zip', '7zip', '7z') %}
+    - 7za
+{% endif %}
+{% endif %}
