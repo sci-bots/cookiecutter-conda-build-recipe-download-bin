@@ -5,9 +5,9 @@ REM Download Windows binary.
 if errorlevel 1 exit 1
 mkdir "%PKG_NAME%"
 REM Extract files from from {{cookiecutter.bin_format}} archive.
-{% if cookiecutter.bin_format in ('tar.gz', 'tar.bz2', 'tar') %}
+{% if cookiecutter.bin_format.lower() in ('tar.gz', 'tar.bz2', 'tar') %}
 tar xvf %FILENAME% -C "%PKG_NAME%"
-{% else %}{% if cookiecutter.bin_format in ('zip', '7zip', '7z') %}
+{% else %}{% if cookiecutter.bin_format.lower() in ('zip', '7zip', '7z') %}
 "%PREFIX%"\Library\bin\7za x %FILENAME% -y -o "%PKG_NAME%"
 {% endif %}
 {% endif %}
