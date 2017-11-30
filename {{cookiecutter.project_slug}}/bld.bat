@@ -8,7 +8,7 @@ REM Extract files from from {{cookiecutter.bin_format}} archive.
 {% if cookiecutter.bin_format.lower() in ('tar.gz', 'tar.bz2', 'tar') %}
 tar xvf %FILENAME% -C "%PKG_NAME%"
 {% else %}{% if cookiecutter.bin_format.lower() in ('zip', '7zip', '7z') %}
-"%PREFIX%"\Library\bin\7za x %FILENAME% -y -o "%PKG_NAME%"
+"%PREFIX%"/Library/bin/7za x %FILENAME% -y -o"%PKG_NAME%"
 {% endif %}
 {% endif %}
 if errorlevel 1 exit 1
