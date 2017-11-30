@@ -11,10 +11,10 @@ requirements:
   build:
     - python
     - pywget
-{% if cookiecutter.bin_format in ('tar.gz', 'tar.bz2', 'tar') %}
+{% if cookiecutter.bin_format.lower() in ('tar.gz', 'tar.bz2', 'tar') %}
     # Include `git`, since it includes `tar`
     - git # [win]
-{% else %}{% if cookiecutter.bin_format in ('zip', '7zip', '7z') %}
+{% else %}{% if cookiecutter.bin_format.lower() in ('zip', '7zip', '7z') %}
     - 7za
 {% endif %}
 {% endif %}
